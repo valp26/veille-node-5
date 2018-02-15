@@ -6,8 +6,10 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs'); // générateur de template
 const MongoClient = require('mongodb').MongoClient;
 
+
+
 ////////////////////////////////// route accueil
-app.get('/', function (req, res) {
+app.get('/membres', function (req, res) {
 	var cursor = db.collection('adresse').find().toArray(function(err, resultat){
 		if (err) return console.log(err)
 		var util = require("util");
@@ -20,12 +22,12 @@ app.get('/', function (req, res) {
 
 let db // variable qui contiendra le lien sur la BD
 
-//////////////////////////////// route 
+//////////////////////////////// route ajouter
 app.post('/ajouter', (req, res) => {
 	db.collection('adresse').save(req.body, (err, result) => {
 		if (err) return console.log(err)
 		console.log('sauvegarder dans la BD')
-		res.redirect('/')
+		res.redirect('/membres')
 	})
 })
 
