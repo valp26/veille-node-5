@@ -1,11 +1,26 @@
-body {
-	font-family : arial;
-}
+html {
+    display: table;
+    margin: auto;
 
-.tableau {
-	border-collapse : collapse;
-	td, th {
-		border : 1px dotted #aaa;
-		padding : 5px;
+    body {
+	    display: table-cell;
+	    vertical-align: middle;
+	  	font-family: "Arial", sans-serif;
+		line-height: 1.5;
+
+		table {
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+			width: 700px;
+			table-layout: fixed;
+
+			th {
+				background: blue;
+			}
+
+			td {
+				background: lightblue;
+			}
+		}
 	}
 }
