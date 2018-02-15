@@ -6,7 +6,11 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs'); // générateur de template
 const MongoClient = require('mongodb').MongoClient;
 
-
+////////////////////////////////// route accueil
+app.get('/', function (req, res) {
+	// affiche le contenu du gabarit accueil
+	res.render('gabarit-accueil.ejs');
+})
 
 ////////////////////////////////// route membres
 app.get('/membres', function (req, res) {
