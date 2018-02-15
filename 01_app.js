@@ -20,6 +20,15 @@ app.get('/', function (req, res) {
 
 let db // variable qui contiendra le lien sur la BD
 
+//////////////////////////////// route 
+app.post('/ajouter', (req, res) => {
+	db.collection('adresse').save(req.body, (err, result) => {
+		if (err) return console.log(err)
+		console.log('sauvegarder dans la BD')
+		res.redirect('/')
+	})
+})
+
 MongoClient.connect('mongodb://127.0.0.1:27017', (err, database) => {
  if (err) return console.log(err)
  db = database.db('carnet_adresse')

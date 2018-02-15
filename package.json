@@ -19,5 +19,13 @@
     "express": "^4.16.2",
     "mongodb": "^3.0.2",
     "save": "^2.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valp26/veille-node-5.git"
+  },
+  "bugs": {
+    "url": "https://github.com/valp26/veille-node-5/issues"
+  },
+  "homepage": "https://github.com/valp26/veille-node-5#readme"
 }
