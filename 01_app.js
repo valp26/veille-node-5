@@ -26,6 +26,12 @@ app.get('/membres', function (req, res) {
 
 let db // variable qui contiendra le lien sur la BD
 
+////////////////////////////////// route formulaire
+app.get('/', function (req, res) {
+	// affiche le contenu du gabarit accueil
+	res.render('gabarit-formulaire.ejs');
+})
+
 //////////////////////////////// route ajouter
 app.post('/ajouter', (req, res) => {
 	db.collection('adresse').save(req.body, (err, result) => {
