@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<table class="tableau">
-
+			<!-- Entête du tableau selon le nombre de paramètres par élément de la base de données -->
 			<% 
 			let noLigne = 0;
 			for(elm of adresses) {%>
@@ -21,6 +21,7 @@
 				</tr>
 			<% } %>
 
+			<!-- Affichage d'un élément de la base de données par ligne du tableau -->
 			<tr>
 				<% for (p in elm) { %>
 					<td><%= elm[p] %></td>
