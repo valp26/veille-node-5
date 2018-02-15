@@ -1,6 +1,9 @@
-var express = require('express');
+const express = require('express');
 var app = express();
 app.use(express.static('public'));
+
+const bodyParser= require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 /* on associe le moteur de vue au module «ejs» */
 app.set('view engine', 'ejs'); // générateur de template
@@ -27,7 +30,7 @@ app.get('/membres', function (req, res) {
 let db // variable qui contiendra le lien sur la BD
 
 ////////////////////////////////// route formulaire
-app.get('/', function (req, res) {
+app.get('/formulaire', function (req, res) {
 	// affiche le contenu du gabarit accueil
 	res.render('gabarit-formulaire.ejs');
 })
