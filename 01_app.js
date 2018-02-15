@@ -8,7 +8,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 
 
-////////////////////////////////// route accueil
+////////////////////////////////// route membres
 app.get('/membres', function (req, res) {
 	var cursor = db.collection('adresse').find().toArray(function(err, resultat){
 		if (err) return console.log(err)
@@ -16,7 +16,7 @@ app.get('/membres', function (req, res) {
  		console.log('util = ' + util.inspect(resultat));
 		// transfert du contenu vers la vue index.ejs (renders)
 		// affiche le contenu de la BD
-		res.render('gabarit_1.ejs', {adresses: resultat})
+		res.render('gabarit-membres.ejs', {adresses: resultat})
 	}) 
 })
 
