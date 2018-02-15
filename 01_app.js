@@ -1,7 +1,9 @@
+/*Configuration d'express*/
 const express = require('express');
 var app = express();
 app.use(express.static('public'));
 
+/*Configuration de body parser*/
 const bodyParser= require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -21,7 +23,6 @@ app.get('/membres', function (req, res) {
 		if (err) return console.log(err)
 		var util = require("util");
  		console.log('util = ' + util.inspect(resultat));
-		// transfert du contenu vers la vue index.ejs (renders)
 		// affiche le contenu de la BD
 		res.render('gabarit-membres.ejs', {adresses: resultat})
 	}) 
@@ -44,11 +45,12 @@ app.post('/ajouter', (req, res) => {
 	})
 })
 
+/*Connexion à la base de données MongoDB*/
 MongoClient.connect('mongodb://127.0.0.1:27017', (err, database) => {
- if (err) return console.log(err)
- db = database.db('carnet_adresse')
-// lancement du serveur Express sur le port 8081
- app.listen(8081, () => {
- console.log('connexion à la BD et on écoute sur le port 8081')
- })
+	if (err) return console.log(err)
+	db = database.db('carnet_adresse')
+	// lancement du serveur Express sur le port 8081
+	app.listen(8081, () => {
+		console.log('connexion à la BD et on écoute sur le port 8081')
+	})
 })
